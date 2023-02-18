@@ -1,2 +1,2 @@
-# MARIO_JUMP
+# MARIO GAME
 
