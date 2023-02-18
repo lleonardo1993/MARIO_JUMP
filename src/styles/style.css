@@ -4,6 +4,78 @@
     box-sizing: border-box;
 }
 
+/* Cenario */
 .game-board{
     width: 80%;
+    height: 500px;
+    border: 1px solid #333;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;  /* oculta tudo que sair da div */
 }
+
+/* tubo */
+.pipe{
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe-animation 2s infinite linear; /* chamda da animação */
+}
+
+/* mario */
+.mario{
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    animation: jump 500ms;
+}
+
+/* keyframe animação tubo */
+
+@keyframes pipe-animation {
+    from {
+        right: -80px; /* começo */
+    }
+
+    to{
+        right: 100%; /* fim */
+    }
+}
+
+/* keyframe animação jump */
+
+@keyframes jump {
+
+    0%{
+        bottom: 0;  /* inicio */
+    }
+
+    40%{
+        bottom: 180px;
+    }
+
+    50%{
+        bottom: 180px; /* meio */
+    }
+
+    60%{
+        bottom: 180px;
+    }
+
+    100%{
+        bottom: 0; /* fim */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
