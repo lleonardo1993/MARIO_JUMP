@@ -1,5 +1,7 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
+const gameBoard = document.querySelector('.game-board');
+
 
 /** logica do jump*/
 const jump = () => {
@@ -34,7 +36,8 @@ const loop = setInterval(() => {
         mario.style.width = '75px';
         mario.style.marginLeft = '50px';
         
-
+        gameBoard.style.background = 'red' ;
+        clearInterval(loop); /** stop loop*/
 
     }
 
