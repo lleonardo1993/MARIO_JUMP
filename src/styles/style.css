@@ -11,6 +11,7 @@
     border: 1px solid #333;
     margin: 0 auto;
     position: relative;
+    background-color: aqua;
     overflow: hidden;  /* oculta tudo que sair da div */
 }
 
@@ -18,18 +19,21 @@
 .pipe{
     position: absolute;
     bottom: 0;
-    width: 80px;
-    animation: pipe-animation 2s infinite linear; /* chamda da animação */
+    width: 80px;    
+    animation: pipe-animation 1.5s infinite linear; /* chamda da animação e time do pipe*/
 }
 
 /* mario */
-.mario{
+.mario {
     width: 150px;
     position: absolute;
-    bottom: 0;
-    animation: jump 500ms;
+    bottom: 0;    
 }
 
+
+.jump {
+    animation: jump 500ms ease-out;
+}
 /* keyframe animação tubo */
 
 @keyframes pipe-animation {
