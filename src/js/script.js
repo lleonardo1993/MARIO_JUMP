@@ -7,18 +7,24 @@ const reset = document.querySelector('.reset');
 const overlayScore = document.querySelector('.overlay-score');
 const startGameInfo = document.querySelector('.start-game');
 const win = document.querySelector('.win');
+const egg = document.querySelector('.egg');
+const eggScore = document.querySelector('.eggScore');
 
 let countScore = 0;
+let countEgg = 1;
 let startGame = true;
 let timerVerifyDead;
 let timerScore;
 let timerSpeed;
+
 
 startGameInfo.innerHTML =
     'Pressione qualquer tecla para iniciar <br/> O tempo é contabilizado a cada segundo';
 
 /** restart game*/
 reset.addEventListener('click', () => window.location.reload());
+
+
 
 window.addEventListener('keypress', () => {
 
@@ -28,6 +34,7 @@ window.addEventListener('keypress', () => {
 
     setTimeout(() => mario.classList.remove('jump'), 500);
 
+
     if (startGame) {
         let pipeSpeed = 1.5;
         startGameInfo.innerHTML = '';
@@ -35,6 +42,8 @@ window.addEventListener('keypress', () => {
         timerScore = setInterval(() => {
             countScore++;
             score.innerHTML = `SCORE ${countScore}`;
+            eggScore.innerHTML = resolvEgg();
+
         }, 1000);
 
         timerSpeed = setInterval(() => {
@@ -47,19 +56,20 @@ window.addEventListener('keypress', () => {
         }, 1000 * 10);
     }
 
-    if (countScore > 2) {
+
+    if (countScore > 200) {
         winner();
         clearInterval(winner)
         winnerTwo();
         winnerTree();
-        
+
     }
 
-
     startGame = false;
-
     timerVerifyDead = setInterval(() => {
+        resolvEgg();
         loop();
+        
     }, 10);
 });
 
@@ -78,6 +88,31 @@ const winnerTree = () => {
         mario.src = '/src/assets/win2.gif';
 
     }, 18000);
+}
+
+
+let resolvEgg = () => {
+    let eggPosition = egg.offsetLeft; /** pega o valor de toda posicao*/
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', ''); /** pega o valor do style, e convert para string com sinal ' + '*/
+
+
+    if (eggPosition == 118 && marioPosition == 0) {
+
+        console.log("mario", marioPosition)
+
+        countEgg++;
+        console.log("count", countEgg, eggPosition)
+        
+        /** 
+        overlayScore.innerHTML = `EGG ${10}`;
+        overlay.style.display = 'flex';*/
+
+    }
+    
+
+
+
+
 }
 
 const winner = () => {
@@ -104,10 +139,6 @@ const winner = () => {
     clearInterval(timerScore);
     clearInterval(timerVerifyDead);
 }
-/** start game*/
-
-
-
 
 /** logica do jump*/
 const jump = () => {
@@ -129,7 +160,7 @@ const loop = () => {
     const pipePosition = pipe.offsetLeft; /** pega o valor de toda posicao*/
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', ''); /** pega o valor do style, e convert para string com sinal ' + '*/
 
-    console.log(marioPosition)
+
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 90) {
 
         pipe.style.animation = 'none';
@@ -138,15 +169,17 @@ const loop = () => {
         mario.style.animation = 'none';
         mario.style.bottom = `${marioPosition}px`;
 
+
         mario.src = './src/assets/game-over.png';
         mario.style.marginLeft = '50px';
         mario.style.bottom = `-200px`;
         mario.style.width = '80px';
-        mario.classList.add('dead');
+
 
         overlayScore.innerHTML = `SCORE ${countScore}`;
         overlay.style.display = 'flex';
         /** stop loop*/
+
 
         clearInterval(loop);
         clearInterval(timerScore);

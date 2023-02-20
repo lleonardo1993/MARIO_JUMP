@@ -11,6 +11,7 @@ body {
     position: relative;
 }
 
+
 /* Cenario */
 .game-board {
     max-width: 1200px;
@@ -58,6 +59,21 @@ body {
     animation: mario-dead 1s linear;
 }
 
+.eggScore {
+  
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: #598419;
+
+    padding: 10px;
+    background: #bdd8e3;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.1);
+
+  
+}
 .score {
     position: absolute;
     top: 10px;
@@ -71,7 +87,13 @@ body {
     box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.1);
 }
 
-
+.egg {    
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: egg-animation 4s infinite linear;
+    
+}
 .overlay {
     display: none;
     align-items: center;
@@ -168,6 +190,18 @@ body {
     padding: 10px
 }
 
+/* keyframe animação egg */
+@keyframes egg-animation {
+    from {
+        right: -80px;
+        /* começo */
+    }
+
+    to {
+        right: 100%;
+        /* fim */
+    }
+}
 /* keyframe animação tubo */
 
 @keyframes pipe-animation {
