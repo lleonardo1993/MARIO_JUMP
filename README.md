@@ -1,14 +1,11 @@
 # MarioBros: Leonardo 
 
-[![Série]
-[![licence mit]
-
 > Projeto criado com Javascript puro!
 > 
 > Quer ver como ta ficando? Acessa a [**DEMO**](https://lleonardo1993.github.io/MARIO_JUMP/)
 
 <p align="center">
-  <img alt="Logo do projeto" src="/src/assets/logo.png" />
+  <img alt="Logo do projeto" src="../src/assets/logo.png" />
 </p>
 
 ## History/Histórico
