@@ -5,7 +5,7 @@
 > Quer ver como ta ficando? Acessa a [**DEMO**](https://lleonardo1993.github.io/MARIO_JUMP/)
 
 <p align="center">
-  <img alt="Logo do projeto" src="/src/assets/logo.gif" />
+  <img alt="Logo do projeto" style="left:50px" src="/src/assets/logo.gif" />
 </p>
 
 ## History/Histórico
